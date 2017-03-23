@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<title>el Bages</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<style>
+	* {line-height:1; letter-spacing:-0.5pt; padding:0; margin:0;}
+	
+	@font-face {  
+			font-family: "A";  
+			src: url("../fonts/Roboto-Regular.ttf");  
+			}
+			
+/* >>>----------->   15 pt = 20 px font base = 1 rem <---------<<<  */
+
+	
+	html {font-size: 15pt; width:100%; height:100%;}
+	body {margin:auto; padding:0; font-family:A; width:50%;} 
+	
+	/*240 px -> 180 pt -> 12 em/rem*/
+	
+	#div1 {height:4rem; 	border:1pt solid red;	width:12rem;} 	/*  rem  */
+	#div2 {height:6rem; 	border:1pt solid red;	width:180pt;}	/*  pt   */
+	#div3 {height:8rem;		border:1pt solid red;	width:100%;}	/*  %    */
+	
+	.rem10 {
+		font-size: 1rem;
+		height:2rem;
+		border:1pt solid lime;
+	}
+	.rem15 {
+		font-size: 1.5rem;
+		height:3rem;
+		border:1pt solid lime;
+	}
+	.rem20 {
+		font-size: 2rem;
+		height:4rem;
+		border:1pt solid lime;
+	}
+	.back {
+		width:3.1rem; height:2.85rem;}
+	
+	@media screen and (max-width: 620pt) and (min-resolution: 100dpi)
+		{
+		html {font-size: 10pt;}
+		}
+
+	
+	
+</style> 
+</head>
+
+<body>
+    <div id="div1">      
+        <div class="rem10">
+           XMÀpg | font 1 rem (x10pt)
+        </div>
+    </div>
+	<div id="div2">      
+        <div class="rem15">
+           XMÀpg | font 1.5 rem (x10pt)
+        </div>
+    </div>
+    <div id="div3"> 
+        <div class="rem20">
+           XMÀpg | font 2 rem (x10pt)
+        </div> 
+	</div>
+    
+    <div style="width:100%;height:20rem; border:1pt solid blue;">
+    	<img src="img/nav/b_cat01.png" class="back">
+        <br>
+		<img src="img/cont/001/002.jpg" style="width:5rem; height:5rem;">
+        <img src="img/cont/001/002.jpg" width="100" height="100">
+    </div>
+    
+    <!-- mantenen aspecte igualtat a 96dpi -->
+    <div style="width:10rem;height:1rem; border:1pt solid green;">10rem</div>
+    <div style="width:200px;height:20px; border:1pt solid red;">200px</div>
+    <div style="width:150pt;height:15pt; border:1pt solid red;">150pt</div>
+
+
+
+</body>
+</html>

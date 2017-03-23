@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>el Bages</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+<link href="css/gen2.css" rel="stylesheet" type="text/css">
+<link href="css/cat_1.css" rel="stylesheet" type="text/css">
+
+
+<script type="text/javascript" src="js/Cat_001_ElemList.js"></script>
+<script type="text/javascript">
+
+window.onload =	function elemSel() {
+		  
+		id = parseInt(localStorage.Elem)-1 ;
+		
+		// seleccionem un element de l'array 
+		el = ListCat001[id];
+		
+		var nom=document.getElementById("nom");
+			nom.innerHTML = el[1];
+		var adr=document.getElementById("adr");
+			adr.innerHTML = el[2];
+		var tel=document.getElementById("tel");
+			tel.innerHTML = '<a href="tel:' + el[3] 
+							+ '"><img src="img/ico/tel_cat01.png" style="width:2.2rem; height:2rem;"></a>';	
+		var www=document.getElementById("www");
+			www.innerHTML = "<a class='lin' href='http://" + el[4] + "'>" + el[4] + "</a>";	
+		var txt=document.getElementById("txt");
+			txt.innerHTML = el[6];
+
+			localStorage.LatP = el[7][0];
+			localStorage.LngP = el[7][1];
+			
+		var fons=document.getElementById("fons");
+			fons.innerHTML = '<div class="imgcont" style="background-image:url(img/cont/' 
+								+ el[0] + '/b.jpg)"></div>';
+				
+					
+		var thu=document.getElementById("thu");
+		
+		var imSel;
+		
+		for(i=0;i<el[5];i++){			
+			imSel =  "00" + (i+1);		
+			thu.innerHTML += "<li><a id='" + imSel 
+								+ "' href='6_gal.html' onclick='imgGal(this.id)'><img src='img/cont/" 
+								+ el[0] + "/" + imSel + ".jpg'></a></li>";								
+		}
+		
+		loaded();
+}
+
+function imgGal(id){	
+	localStorage.imSel = id;	
+	};
+
+</script>
+
+<!-------------------------------------------------------------------------------------->
+<script src="js/iscroll.js"></script>
+
+<script type="text/javascript">
+
+var myScroll;
+
+function loaded() { 
+	myScroll = new IScroll('#wrapper', { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false });
+	}
+</script>
+
+<style type="text/css">
+
+body,ul,li {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+#header {
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	background: #CD235C;
+	padding: 0;
+	color: #eee;
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#wrapper {
+	position: relative;
+	z-index: 1;
+	bottom:0;
+	height: 6rem;   /****** rem *****/
+	width: 100%;
+	overflow: hidden;
+	-ms-touch-action: none;
+}
+
+#scroller {
+	position: absolute;
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	/* width: 640px; */
+	width: 35rem; /**********  COMPTE MIDA EXACTE!!!  *******************/
+	height: 6rem;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+#scroller ul {
+	list-style: none;
+	width: 100%;
+}
+
+#scroller li {
+	width: 5rem; /****** rem *****/
+	height: 5rem; /****** rem *****/
+	padding-left:0.5rem;
+	float: left;
+	overflow: hidden;
+
+}
+
+</style>
+
+<!-------------------------------------------------------------------------------------->
+
+</head>
+<body>
+
+
+
+<div id="sup">
+
+    <div id="top">
+        <a href="3_llista_elem.html">
+        	<img src="img/nav/b_cat01.png" style="width:3.2rem; height:3rem; float:left;">
+        </a>
+        <span class="bages1">el </span><span class="bages2">Bages&nbsp;&nbsp;</span>
+    </div>
+    <div id="titl" class="titcap"><span id="nom"><!--///    ///--></span></div> 
+    
+<!-------/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\------>   
+ 
+    <div id="fons"><!--///     ///--></div>
+    
+    
+      <div id="contentpoi">
+        
+        		<div id="more">
+                    <a href='5_poi_cat01_text.html'><img src='img/nav/f_cat01.png'></a>			
+                    <a href="#"><img src="img/nav/s2_cat001.png"></a>
+                </div>
+        
+                <div id="txtintro">
+
+                    <span class="txtblanc">
+                        <span id="txt"><!--///     ///--></span><br><br>
+                        <span id="adr"></span>
+                    </span>	
+                    <span id="www"><!--///     ///--></span>
+                    <span id="tel"><!--///       ///--></span>
+                    <a href="7_map.html"><img src="img/ico/map_cat01.png" style="width:2.2rem; height:2rem;"></a>
+                </div>
+
+      </div>
+    
+    </div>
+
+<!-------/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\------>  
+<div class="gallery tmb pad">
+    <div id="wrapper">
+        <div id="scroller">
+            <ul id="thu"><!--///     ///--></ul>
+        </div>
+    </div>	
+</div> 
+
+
+</body>
+</html>

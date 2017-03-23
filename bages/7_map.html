@@ -1,0 +1,168 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>el Bages</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<link href="css/gen2.css" rel="stylesheet" type="text/css">
+<link href="css/cat_1.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/Cat_001_ElemList.js"></script>
+
+<script type="text/javascript" src="maps/zepto.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" src="maps/gmaps.js"></script>
+
+<script type="text/javascript">
+
+/////// latitud i longitud del POI
+		var latP = localStorage.LatP || nLatP;
+		var lngP = localStorage.LngP || nLngP;
+		
+/////// latitud i longitud de USUARI		
+		var map, latU, lngU;
+
+    	var icon = 'maps/poi0.png';
+
+
+$(function(){
+		  
+		id = parseInt(localStorage.Elem)-1 ;
+		
+		// seleccionem un element de l'array 
+		el = ListCat001[id];
+				
+		var nom=document.getElementById("nom");
+			nom.innerHTML = el[1];
+	
+
+    function geolocalizar(){
+        GMaps.geolocate({
+          success: function(position){
+            latU = position.coords.latitude;  // guarda coords a lat i lng
+            lngU = position.coords.longitude;
+
+            map = new GMaps({  // mostra mapa centrat en coords [lat, lng]
+              el: '#map',
+              lat: latP,
+              lng: lngP,
+
+
+			  
+			  zoomControlOpt: {		// opcions dels controls del mapa
+                style : 'SMALL',
+                position: 'TOP_LEFT'
+			   },
+			  panControl : false,
+			  streetViewControl : false,
+			  mapTypeControl: false,
+			  overviewMapControl: false
+				  
+			  
+			  
+			  
+			  
+            });
+            map.addMarker({ lat: latP, lng: lngP, icon: icon, infoWindow: {content: '<p>INFO text?</p>'}});  // marcador a POI
+			map.addMarker({ lat: latU, lng: lngU, icon: icon});  // marcador a USUARI
+			
+		
+			
+          },
+          error: function(error) { alert('Geolocalizació fallida: '+error.message); },
+          not_supported: function(){ alert("Geolocalització no suportada pel seu dispositiu"); },
+        });
+    };
+	  
+	// invoquem la funció 
+	geolocalizar(); 
+	
+	
+	function ruta(){
+
+       // mostra ruta 
+        map.drawRoute({
+          origin: [latU, lngU],  		// origen en coordenades usuari
+          destination: [latP, lngP],	// destinació en coordenades POI
+          travelMode: 'driving',
+          strokeColor: '#2b94aa',
+          strokeOpacity: 0.6,
+          strokeWeight: 5
+        });
+    };
+
+
+
+	function centrar() {
+			map.setCenter(latU, lngU);	
+	};
+	  
+ 
+	
+	$("#veure").on('click', ruta);
+	$("#veure").on('tap', ruta);
+	
+	$("#centre").on('click', centrar);
+	$("#centre").on('tap', centrar);
+	  
+});
+</script>
+<style>
+#map{
+	display: block;
+	margin: 0;
+	padding: 0;
+	position: absolute; 
+	top: 7rem;  
+	height:calc(100% - 7rem);  
+	left: 0;    
+	right: 0;
+	bottom: 0;
+	background: #3C4951;
+	opacity:0.8;
+	z-index:1000;
+}
+button {       
+	width: 40%;
+	padding:0;
+	padding-left: 0.2rem;
+	margin:0;
+	background-color:#2b94aa;
+	background-image:url(img/nav/bg_a.png), url(img/nav/bg_a.png), url(img/nav/bg_b.png), url(img/nav/bg_b.png);
+	background-repeat:repeat-x;
+	cursor: pointer;
+	line-height:2;	
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+button:active { background-color:#52A5B7;}
+
+</style>
+</head>
+
+<body>
+
+<div id="sup">
+
+    <div id="top">
+        <a href="4_poi_cat01.html">
+        	<img src="img/nav/b_cat01.png" style="width:3.2rem; height:3rem; float:left;">
+        </a>
+        <span class="bages1">el </span><span class="bages2">Bages&nbsp;&nbsp;</span>
+    </div>
+    <div id="titl" class="titcap"><span id="nom"><!--///    ///--></span></div> 
+    
+<!-------/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\------>   
+<div id="map"></div>
+  <div id="content">
+    
+    <button id="veure" class="titll" style="font-size:0.6rem;">Veure RUTA</button>
+    <button id="centre" class="titll" style="font-size:0.6rem;">POSICIÓ ACTUAL</button>
+      
+    
+        
+  </div>
+
+</div>
+
+</body>
+</html>

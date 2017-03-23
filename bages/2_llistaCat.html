@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<title>el Bages</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<link href="css/gen2.css" rel="stylesheet" type="text/css">
+<link href="css/cat_1.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/Cat_List.js"></script>
+<script type="text/javascript">
+	
+	window.onload =	function llistaElem() {
+					
+		// escriure a llista elements array		
+		var llista3=document.getElementById("content");
+		
+		for(i in ListCats){
+			
+			elId = ListCats[i][0]; // 001
+			elNom = ListCats[i][1]; // nom Categoria
+			// crea butons
+			llista3.innerHTML += "<div id='llistat'><a href='3_llista_elem.html' id='" 
+				+ elId 	+ "' onclick='guardaLocal(this.id)'><div class='llistatxt'>" 
+				+ elNom + "<div class='gocat'><img src='img/nav/go.png' /></div></div></a><div class='omb'></div>" ;
+
+		}
+	};
+
+
+  	function guardaLocal(id) {
+		// asigna id botó a .Elem
+		localStorage.Cat = id;	
+  	};
+
+
+</script>
+</head>
+
+<body>
+
+<div id="sup">
+
+    <div id="top">
+        <a href="1_home.html">
+        	<img src="img/nav/b_cat01.png" style="width:3.2rem; height:3rem; float:left;">
+        </a>
+        <span class="bages1">el </span><span class="bages2">Bages&nbsp;&nbsp;</span>
+    </div>
+    <div id="titl" class="titcap"><span id="nom">Serveis</span></div> 
+    
+<!-------/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\------>   
+ 
+ 
+<div id="txtllistats">
+         <div id="content"></div>
+</div>
+    
+    
+</div>
+
+
+</body>
+</html>
+

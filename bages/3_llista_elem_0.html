@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<title>el Bages</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+<link href="css/gen2.css" rel="stylesheet" type="text/css">
+<link href="css/cat_1.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/Cat_001_ElemList.js"></script>
+<script type="text/javascript">
+	
+	window.onload =	function llistaElem() {
+					
+		// escriure a llista elements array		
+		var llistaEl=document.getElementById("content");
+		
+		for(i in ListCat001){
+			
+			elId 	= ListCat001[i][0]; // 001
+					// imatge
+			elImg	= "href='4_poi_cat01.html'><img src='img/cont/" + elId + "/a.jpg' class='imgllista'></a>"; 
+					// NomRestaurant
+			elNom 	= "<div class='titll'>" + ListCat001[i][1] + "</div>"; 
+					// Text breu
+			elBreu	= "<div class='txtblancll'>" + ListCat001[i][8] + "</div>" ; 						
+					// *****
+			elQual 	= "<div class='stars'>" + ListCat001[i][9] + "</div>" ; 
+					// 938330099
+			elTel	= "<a href='tel:" + ListCat001[i][3] + "'><img src='img/ico/tel_cat01.png' style='width:2.2rem; height:2rem;'></a>"
+
+			
+			
+			// crea llistat
+			llistaEl.innerHTML += 	"<div class='itemllista'>"
+									+ "<a id='" + elId 	+ "' onclick='guardaLocal(this.id)' "
+									+ elImg + elNom + elBreu  + elQual + elTel  
+									+ "<a id='" + elId 	+ "' onclick='guardaLocal(this.id)' href='7_map.html'>" 
+									+ "<img src='img/ico/map_cat01.png' style='width:2.2rem; height:2rem;'></a>" 
+									+ "<a id='" + elId 	+ "' onclick='guardaLocal(this.id)' href='4_poi_cat01.html'>"
+									+ "<img src='img/ico/go_cat01.png' style='width:2.2rem; height:2rem;'></a></div>"
+									+ "<div class='separador'></div>" ;
+									
+									
+		}
+	};
+
+
+  	function guardaLocal(id) {
+		// asigna id botó a .Elem
+		localStorage.Elem = id;	
+  	};
+
+
+</script>
+
+
+
+
+
+</head>
+
+<body>
+
+<div id="sup">
+
+    <div id="top">
+        <a href="2_llistaCat.html">
+        	<img src="img/nav/b_cat01.png" style="width:3.2rem; height:3rem; float:left;">
+        </a>
+        <span class="bages1">el </span><span class="bages2">Bages&nbsp;&nbsp;</span>
+    </div>
+    <div id="titl" class="titcap"><span id="nom">On menjar</span></div> 
+    
+<!-------/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\------>   
+ 
+ 
+ 
+    <div id="txtllistats">
+             <div id="content"></div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

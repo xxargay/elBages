@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+<head>
+<title>el Bages</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+<link href="css/gen2.css" rel="stylesheet" type="text/css">
+<link href="css/cat_1.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/Cat_001_ElemList.js"></script>
+<script type="text/javascript">
+	
+	window.onload =	function llistaElem() {
+					
+			// escriure a llista elements array		
+			var llistaEl=document.getElementById("content");
+			
+			for(i in ListCat001){
+				
+				elId 	= ListCat001[i][0]; // 001
+						// imatge
+				elImg	= "href='4_poi_cat01.html'><img src='img/cont/" + elId + "/a.jpg' class='imgllista'></a>"; 
+						// NomRestaurant
+				elNom 	= "<div class='titll'>" + ListCat001[i][1] + "</div>"; 
+						// Text breu
+				elBreu	= "<div class='txtblancll'>" + ListCat001[i][8] + "</div>" ; 						
+						// *****
+				elQual 	= "<div class='stars'>" + ListCat001[i][9] + "</div>" ; 
+						// 938330099
+				elTel	= "<a href='tel:" + ListCat001[i][3] + "'><img src='img/ico/tel_cat01.png' style='width:2.2rem; height:2rem;'></a>"
+	
+				
+				
+				// crea llistat
+				llistaEl.innerHTML += 	"<li><div class='itemllista'>"
+										+ "<a id='" + elId 	+ "' onclick='guardaLocal(this.id)' "
+										+ elImg + elNom + elBreu  + elQual + elTel  
+										+ "<a id='" + elId 	+ "' onclick='guardaLocal(this.id)' href='7_map.html'>" 
+										+ "<img src='img/ico/map_cat01.png' style='width:2.2rem; height:2rem;'></a>" 
+										+ "<a id='" + elId 	+ "' onclick='guardaLocal(this.id)' href='4_poi_cat01.html'>"
+										+ "<img src='img/ico/go_cat01.png' style='width:2.2rem; height:2rem;'></a></div>"
+										+ "<div class='separador'></div></li>" ;
+										
+										
+			}
+			
+		loaded();	
+			
+	};
+	
+	
+	function guardaLocal(id) {
+		// asigna id botó a .Elem
+		localStorage.Elem = id;	
+	};
+	
+	
+
+</script>
+
+
+<!--------------------------------------------------------------------------------->
+
+<script type="text/javascript" src="js/iscroll.js"></script>
+
+<script type="text/javascript">
+
+var myScroll;
+
+function loaded() {
+	myScroll = new IScroll('#wrapper', { mouseWheel: true });
+}
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+</script>
+
+<style type="text/css">
+
+html {
+	-ms-touch-action: none;
+}
+
+body,ul,li {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+body {
+
+	overflow: hidden; /* this is important to prevent the whole page to bounce */
+}
+
+#wrapper {
+	position: absolute;
+	z-index: 1;
+	top: 5rem;
+	bottom: 0px;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+#scroller {
+	position: absolute;
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	width: 100%;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+	
+		
+	/*-webkit-overflow-scrolling: touch;*/
+}
+
+#scroller ul {
+	list-style: none;
+	width: 100%;
+}
+
+#scroller li {
+	height: auto; /*****************/
+	background-color: #2B94AA; /*****/
+}
+
+</style>
+<!--------------------------------------------------------------------------------->
+
+
+</head>
+
+<body>
+
+
+
+    <div id="top">
+        <a href="2_llistaCat.html">
+        	<img src="img/nav/b_cat01.png" style="width:3.2rem; height:3rem; float:left;">
+        </a>
+        <span class="bages1">el </span><span class="bages2">Bages&nbsp;&nbsp;</span>
+    </div>
+    <div id="titl" class="titcap"><span id="nom">On menjar</span></div> 
+    
+<!-------/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\------>   
+ 
+ 
+ <div id="wrapper">
+	<div id="scroller">
+               <ul id="content"></ul>
+    </div>
+ </div>
+    
+
+
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<title>el Bages</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<style>
+	
+			
+/* >>>----------->   15 pt = 20 px font base = 1 rem <---------<<<  */
+
+	
+	html {font-size: 15pt; 			width:100%; 	height:100%;}
+	body {margin:auto; padding:0; 	width:50%; 		height:100%;} 
+	
+	/*240 px -> 180 pt -> 12 em/rem*/
+	
+	#div1 {
+		height:calc(100% - 11.5rem); 	
+		background-color:black;
+		width:100%;
+		} 	
+	#div2 {
+		height:11.5rem; 	
+		background-color:red;
+		width:50%;
+		
+		position:absolute;
+		bottom:0;
+		} 
+	#div3 {
+
+		height:6rem; 	
+		background-color:yellow;
+		width:50%;
+		overflow:auto;
+		} 
+	#div4 {
+		position:relative;
+
+		height:100%; 	
+		background-color:green;
+		width:50%;
+		overflow:auto;
+		} 
+
+	
+	@media screen and (max-width: 620pt) and (min-resolution: 100dpi)
+		{
+		html {font-size: 10pt;}
+		}
+
+	
+	
+</style> 
+</head>
+
+<body>
+
+    <div id="div1">
+    	<div id="div3">
+        	Titular
+        </div>
+    	<div id="div4">
+        	...<br><br><br>...<br><br><br>...<br><br><br>...<br><br><br>...<br><br><br>...<br><br><br>...<br><br><br>...<br><br><br>...<br><br><br>...<br><br><br>...<br><br><br>...<br><br><br>...<br><br><br>
+    	</div>
+    </div>
+    
+	<div id="div2"></div>
+
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		
+        <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	
+		<style>
+			body { margin: 0; padding: 0; }
+			html {font-size: 15pt; height:100%; width:100%;}
+			
+			@media only screen 
+			and (min-device-width : 320px) and (max-device-width : 480px) and (min-resolution: 100dpi){
+			html {font-size: 10pt;}
+			}
+			
+			
+		/*	UTILITZAREM MESURES RELATIVES:
+            prenem com a base 1rem = 15pt
+        	PER ADAPTAR-NOS A LES DIFERENTS DENSITATS
+        	fem un selector en funció del tamany de la pantalla i la densitat de píxels
+		*/
+		</style>
+		
+        <title>Hello World</title>
+    </head>
+    <body>
+		<img src="1.png" style='width:24rem; height:40rem;' /><!----480x800--->
+		<br />
+		<img src="a.jpg"  style='width:6rem; height:6rem;'/><!----120x120--->
+		<br />
+        <img src="a.jpg"  style='width:6rem; height:6rem;'/><img src="a.jpg"  style='width:6rem; height:6rem;'/><img src="a.jpg"  style='width:6rem; height:6rem;'/><img src="a.jpg"  style='width:6rem; height:6rem;'/>
+        <br />
+        <div style='width:788px; height:120px; border:1px red solid'></div>
+        <!-- els elements conserven mides en pixels -->
+        <br>
+		<img src="a.jpg" style='width:120px; height:120px;'/>
+        <!-- imatge amb mides en pixels -->
+        <br />
+        <br />
+		<img src="2.png"  style='width:16rem; height:24rem;'/><!----120x120--->
+		
+    </body>
+</html>

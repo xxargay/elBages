@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+<title>el Bages</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+
+<!----------------------------- iScroll -------------------------------------->
+<script src="js/iscroll.js"></script>
+<script type="text/javascript">
+
+//  >>>>>>>>>>>>>>> mogut a onload 
+
+</script>
+
+<style>
+			#wrapper {
+				position: relative;
+				z-index: 1;
+				top: 0px;
+				bottom: 0px;
+				left: 0;
+				width: 100%;
+
+				overflow: hidden;
+			}
+			
+			#scroller {  
+				position: relativee;
+				z-index: 1;
+				-webkit-tap-highlight-color: rgba(0,0,0,0);
+				width: 100%;
+				-webkit-transform: translateZ(0);
+				-moz-transform: translateZ(0);
+				-ms-transform: translateZ(0);
+				-o-transform: translateZ(0);
+				transform: translateZ(0);
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				-webkit-text-size-adjust: none;
+				-moz-text-size-adjust: none;
+				-ms-text-size-adjust: none;
+				-o-text-size-adjust: none;
+				text-size-adjust: none;
+			}
+
+</style>
+
+<!----------------------------- iScroll -------------------------------------->
+
+
+<link href="css/gen2.css" rel="stylesheet" type="text/css">
+<link href="css/cat_1.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/Cat_001_ElemList.js"></script>
+
+<script type="text/javascript">
+
+
+////////////////// iScroll
+		
+		var myScroll;
+
+		function loaded () {
+			myScroll = new IScroll('#wrapper');
+			alert("s'ha creat l'objecte");
+		}
+		
+		
+////////////////// iScroll		
+		document.addEventListener('DOMContentLoaded', scroll, false);	
+////////////////// 	
+
+		
+		
+		
+window.onload =	function elemSel() {
+		  
+		id = parseInt(localStorage.Elem)-1 ;
+		
+		// seleccionem un element de l'array 
+		el = ListCat001[id];
+		
+		var nom=document.getElementById("nom");
+			nom.innerHTML = el[1];
+		var adr=document.getElementById("adr");
+			adr.innerHTML = el[2];	
+		var tel=document.getElementById("tel");
+		tel.innerHTML = '<a href="tel:' + el[3] + '"><img src="img/ico/tel_cat01.png" width="44" height="39"></a>';	
+		var www=document.getElementById("www");
+			www.innerHTML = "<a class='lin' href='http://" + el[4] + "'>" + el[4] + "</a>";	
+		var txt2=document.getElementById("txt2");
+			txt2.innerHTML = el[10];
+
+
+		loaded();	
+}
+
+
+
+</script>
+</head>
+
+<body>
+
+<div id="sup">
+
+    <div id="top">
+        <a href="4_poi_cat01.html">
+        	<img src="img/nav/b_cat01.png" style="width:3.2rem; height:3rem; float:left;">
+        </a>
+        <span class="bages1">el </span><span class="bages2">Bages&nbsp;&nbsp;</span>
+    </div>
+    <div id="titl" class="titcap"><span id="nom"><!--///    ///--></span></div> 
+    
+<!-------/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\------>   
+ 
+      <div id="content">
+        
+        		<div id="more">		
+                    <a href="#"><img src="img/nav/s2_cat001.png"></a>
+                </div>
+        
+                <div id="txtllarg">
+                
+			<div  id="wrapper">
+                <div  id="scroller">
+                    <span id="tel"><!--///       ///--></span>
+                    <a href="7_map.html"><img src="img/ico/map_cat01.png" width="44" height="39"></a>           
+                    <br /><br />
+                    <span class="txtblanc">
+                    <span id="txt2"><!--///     ///--></span><br><br>
+                    <span id="www"><!--///     ///--></span>
+                    <span id="adr"></span>
+                    </span>
+                </div>
+			</div>
+            
+                </div>
+                
+      </div>
+    
+</div>
+
+
+</body>
+</html>
